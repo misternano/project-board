@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Dashboard - Team</title>
+    <link rel="icon" type="image/x-icon" href="img/bullet_blue.png">
+    <meta name="author" content="Nano" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#171717" />
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://kit.fontawesome.com/8ab913bf22.js" crossorigin="anonymous"></script>
+    <script src="js/aload.js"></script>
+    <script src="js/filter.js"></script>
+    <script src="js/clock.js"></script>
+</head>
+
+<body>
+    <div id="loadnav"></div>
+    <script>
+        $("#loadnav").load("/components/navigation.html");
+    </script>
+    <script src="js/usercreate.js"></script>
+    <div class="teams navigation">
+        <div class="team__info">
+            <div class="team__title">Departments</div>
+            <div class="team__stats" id="totalmembers"></div>
+            <div class="team__date" id="date"></div>
+        </div>
+        <div class="team-container">
+            <div class="teamdept">
+                <div class="dept__select" id="btn-container">
+                    <a class="dept nofilter" onclick="filterSelection('all')">Show All</a>
+                    <a class="dept marketing" onclick="filterSelection('marketing')">Marketing</a>
+                    <a class="dept finance" onclick="filterSelection('finance')">Finance</a>
+                    <a class="dept operations" onclick="filterSelection('operations')">Operations Management</a>
+                    <a class="dept hr" onclick="filterSelection('hr')">Human Resources</a>
+                    <a class="dept it" onclick="filterSelection('it')">IT Department</a>
+                </div>
+            </div>
+            <script src="js/usercreate.js"></script>
+            <div class="teammanager">
+                <div id="modalbtn" class="team btn">+ Add</div>
+                <div id="createdisplay" class="hide">
+                    <div id="usercreate" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <div class="creation-container">
+                                <div class="creation__title">Create User</div>
+                                <form name="usercreation" action="modified.php" method="post" enctype="multipart/form-data">
+                                    <div class="form-wrapper">
+                                        <div class="form__content">
+                                            <label>First Name</label>
+                                            <input type="text" name="fname" placeholder="First name" required>
+                                        </div>
+                                        <div class="form__content">
+                                            <label>Last Name</label>
+                                            <input type="text" name="lname" placeholder="Last name" required>
+                                        </div>
+                                        <div class="form__content">
+                                            <label>Department</label>
+                                            <select id="deptartment" name="Department" required>
+                                                <option value="" disabled selected hidden>Select one</option>
+                                                <option value="marketing">Marketing</option>
+                                                <option value="finance">Finance</option>
+                                                <option value="operations">Operations Management</option>
+                                                <option value="hr">Human Resources</option>
+                                                <option value="it">IT Department</option>
+                                            </select>
+                                        </div>
+                                        <div class="form__content">
+                                            <label>Title</label>
+                                            <input type="text" name="title" placeholder="Job title" required>
+                                        </div>
+                                        <div class="form__content">
+                                            <label>Picture</label>
+                                            <input type="file" name="picture">
+                                        </div>
+
+                                        <div class="form__submit">
+                                            <input type="submit" value="Submit">
+                                        </div>
+                                        <div class="form__footer">
+                                            <span id="uuid"></span>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="people__title"><span>People</span></div>
+    <div id="members"></div>
+    <script>
+        $("#members").load("/components/members.html");
+    </script>
+    <script>
+        window.onload = function() {
+            aload();
+        };
+    </script>
+</body>
+
+</html>
