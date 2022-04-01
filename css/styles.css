@@ -131,6 +131,7 @@ nav a {
 
 .nav.btn:hover {
     background-color: var(--clr-primary);
+    transition: color .3s ease-in;
 }
 
 .logo {
@@ -420,6 +421,7 @@ TEAMS PAGE
     height: 64px;
     object-fit: cover;
     border: .15rem solid var(--clr-accent);
+    background-color: var(--clr-secondary);
 }
 
 .tag {
